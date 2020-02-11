@@ -1,13 +1,9 @@
-pipeline {
-    agent any
-    tools {
-        maven 'maven3'
+node{
+    stage('SCM Checkout'){
+      git 'https://github.com/Anuradha12337/simple-app'
     }
-    stages{
-        stage('Build'){
-            steps{
-                 sh script: 'mvn clean package'
-            }
-        }
+    stage('compile-Package'){
+        sh 'mvn clean package'
     }
 }
+       
